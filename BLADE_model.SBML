@@ -1,0 +1,340 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+
+  <model>
+    <listOfCompartments>
+      <compartment id="cell" name="cell" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="Cre" initialAmount="0" compartment="cell"></species>
+      <species id="Flp" initialAmount="0" compartment="cell"></species>
+      <species id="Z00" initialAmount="1" compartment="cell"></species>
+      <species id="Z10" initialAmount="0" compartment="cell"></species>
+      <species id="Z10X" initialAmount="0" compartment="cell"></species>
+      <species id="Z01" initialAmount="0" compartment="cell"></species>
+      <species id="Z01X" initialAmount="0" compartment="cell"></species>
+      <species id="Z11" initialAmount="0" compartment="cell"></species>
+      <species id="Z11Xc" initialAmount="0" compartment="cell"></species>
+      <species id="Z11Xf" initialAmount="0" compartment="cell"></species>
+    </listOfSpecies>
+
+    <listOfParameters>
+      <parameter id="alpha" value="1.0"/>
+      <parameter id="beta_p" value="1.0"/>
+      <parameter id="k1c" value="1.0"/>
+      <parameter id="km1c" value="1.0"/>
+      <parameter id="k1f" value="1.0"/>
+      <parameter id="km1f" value="1.0"/>
+      <parameter id="k2c" value="1.0"/>
+      <parameter id="km2c" value="1.0"/>
+      <parameter id="k2f" value="1.0"/>
+      <parameter id="km2f" value="1.0"/>
+      <parameter id="delta_X" value="1.0"/>
+      <parameter id="delta_D" value="1.0"/>
+    </listOfParameters>
+
+    <listOfReactions>
+      <reaction id="reaction_alpha1">
+        <listOfProducts>
+            <speciesReference species="Cre"></speciesReference>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> alpha </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+
+      <reaction id="reaction_beta_p1">
+        <listOfReactants>
+            <speciesReference species="Cre"></speciesReference>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> beta_p </ci>
+              <ci> Cre </ci>
+            </apply>
+          </math>
+         </kineticLaw>
+        </reaction>
+
+      <reaction id="reaction_alpha2">
+        <listOfProducts>
+          <speciesReference species="Flp"></speciesReference>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> alpha </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+
+      <reaction id="reaction_beta_p2">
+        <listOfReactants>
+          <speciesReference species="Flp"></speciesReference>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> beta_p </ci>
+              <ci> Flp </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+
+      <reaction id="reaction_k1c">
+        <listOfReactants>
+          <speciesReference species="Z00"></speciesReference>
+          <speciesReference species="Cre"></speciesReference>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Z10"></speciesReference>
+          <speciesReference species="Z10X"></speciesReference>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k1c </ci>
+              <ci> Z00 </ci>
+              <ci> Cre </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+
+      <reaction id="reaction_km1c">
+        <listOfReactants>
+          <speciesReference species="Z10"></speciesReference>
+          <speciesReference species="Z10X"></speciesReference>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Z00"></speciesReference>
+          <speciesReference species="Cre"></speciesReference>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> km1c </ci>
+              <ci> Z10 </ci>
+              <ci> Z10X </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+
+      <reaction id="reaction_k1f">
+        <listOfReactants>
+          <speciesReference species="Z00"></speciesReference>
+          <speciesReference species="Flp"></speciesReference>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Z01"></speciesReference>
+          <speciesReference species="Z01X"></speciesReference>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k1f </ci>
+              <ci> Z00 </ci>
+              <ci> Flp </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+
+      <reaction id="reaction_km1f">
+        <listOfReactants>
+          <speciesReference species="Z01"></speciesReference>
+          <speciesReference species="Z01X"></speciesReference>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Z00"></speciesReference>
+          <speciesReference species="Flp"></speciesReference>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> km1f </ci>
+              <ci> Z01 </ci>
+              <ci> Z01X </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+
+      <reaction id="reaction_k2c">
+        <listOfReactants>
+          <speciesReference species="Z01"></speciesReference>
+          <speciesReference species="Cre"></speciesReference>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Z11"></speciesReference>
+          <speciesReference species="Z11Xc"></speciesReference>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k2c </ci>
+              <ci> Z01 </ci>
+              <ci> Cre </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+
+      <reaction id="reaction_km2c">
+        <listOfReactants>
+          <speciesReference species="Z11"></speciesReference>
+          <speciesReference species="Z11Xc"></speciesReference>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Z01"></speciesReference>
+          <speciesReference species="Cre"></speciesReference>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> km2c </ci>
+              <ci> Z11 </ci>
+              <ci> Z11Xc </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+
+      <reaction id="reaction_k2f">
+        <listOfReactants>
+          <speciesReference species="Z10"></speciesReference>
+          <speciesReference species="Flp"></speciesReference>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Z11"></speciesReference>
+          <speciesReference species="Z11Xf"></speciesReference>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k2f </ci>
+              <ci> Z10 </ci>
+              <ci> Flp </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+
+      <reaction id="reaction_km2f">
+        <listOfReactants>
+          <speciesReference species="Z11"></speciesReference>
+          <speciesReference species="Z11Xf"></speciesReference>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Z10"></speciesReference>
+          <speciesReference species="Flp"></speciesReference>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> km2f </ci>
+              <ci> Z11 </ci>
+              <ci> Z11Xf </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+
+      <reaction id="reaction_delta_D">
+        <listOfReactants>
+            <speciesReference species="Z00"></speciesReference>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> delta_D </ci>
+              <ci> Z00 </ci>
+            </apply>
+          </math>
+         </kineticLaw>
+        </reaction>
+
+       <reaction id="reaction_delta_X1">
+        <listOfReactants>
+            <speciesReference species="Z10X"></speciesReference>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> delta_X </ci>
+              <ci> Z10X </ci>
+            </apply>
+          </math>
+         </kineticLaw>
+        </reaction>
+
+      <reaction id="reaction_delta_X2">
+        <listOfReactants>
+            <speciesReference species="Z01X"></speciesReference>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> delta_X </ci>
+              <ci> Z01X </ci>
+            </apply>
+          </math>
+         </kineticLaw>
+        </reaction>
+
+      <reaction id="reaction_delta_X3">
+        <listOfReactants>
+            <speciesReference species="Z11Xc"></speciesReference>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> delta_X </ci>
+              <ci> Z11Xc </ci>
+            </apply>
+          </math>
+         </kineticLaw>
+        </reaction>
+
+      <reaction id="reaction_delta_X4">
+        <listOfReactants>
+            <speciesReference species="Z11Xf"></speciesReference>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> delta_X </ci>
+              <ci> Z11Xf </ci>
+            </apply>
+          </math>
+         </kineticLaw>
+        </reaction>  
+    </listOfReactions>
+
+  </model>
+</sbml>
